@@ -49,7 +49,7 @@ def verbChecker(wordSTR, refLIST):
     for i in ("ます"):
         if wordSTR+i in ",".join(refLIST):
             pass
-    for z in  ("を"):
+    for z in  ("を", "に"):
         if z+wordSTR in ",".join(refLIST):
             pass        
         else:
