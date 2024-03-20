@@ -26,7 +26,7 @@ def main(wordSTR="", wordClass="", refLIST=[]):
         resultBOOL = verbChecker(wordSTR, refLIST)
     elif wordClass == "subject":
         resultBOOL = subjectChecker(wordSTR, refLIST)
-    elif wordClass == "object":
+    else wordClass == "object":
         resultBOOL = objectChecker(wordSTR, refLIST)
     else:
         resultBOOL = prepositionChecker(wordSTR, refLIST)
@@ -46,9 +46,12 @@ def verbChecker(wordSTR, refLIST):
 
 
     resultBOOL = True
-    for i in ("る", "う", "くる", "す", "を"):
+    for i in ("ます"):
         if wordSTR+i in ",".join(refLIST):
             pass
+    for z in  ("を"):
+        if z+wordSTR in ",".join(refLIST):
+            pass        
         else:
             resultBOOL = False
     return resultBOOL
@@ -111,3 +114,8 @@ def objectChecker(wordSTR, refLIST):
         else:
             resultBOOL = False
     return resultBOOL
+
+def caseparse(inputLIST):
+    extractSubject(inputLIST)
+    extractObject(inputLIST)
+    extractVerb (inputLIST)
