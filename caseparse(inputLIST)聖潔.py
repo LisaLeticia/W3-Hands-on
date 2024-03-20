@@ -1,10 +1,10 @@
-def main(wordSTR="", wordClass="", refLIST=[]):
+def main(wordSTR="", wordClass="", inputLIST=[]):
     '''
     main() is the main function of this program
     input:
         wordSTR   => string: the word to be tested
         wordClass => string: "verb", "object", "subject"
-        refLIST   => list: corpus of reference sentences
+        inputLIST   => list: corpus of reference sentences
     output:
         True => boolean (the wordSTR belongs to the wordClass)
         False => boolean (the wordSTR does not belong to the wordClass)
@@ -17,28 +17,32 @@ def main(wordSTR="", wordClass="", refLIST=[]):
         else:
             return "Please specify a word class. e.g., verb, object, subject"
 
-    if refLIST == []:
+    if inputLIST == []:
         return "Please provide sentences for word class alculation"
     else:
         pass
 
     if wordClass == "verb":
-        resultBOOL = verbChecker(wordSTR, refLIST)
+        resultBOOL = verbChecker(wordSTR, inputLIST)
     elif wordClass == "subject":
-        resultBOOL = subjectChecker(wordSTR, refLIST)
-    else wordClass == "object":
-        resultBOOL = objectChecker(wordSTR, refLIST)
+        resultBOOL = subjectChecker(wordSTR, inputLIST)
     else:
-        resultBOOL = prepositionChecker(wordSTR, refLIST)
+        wordClass == "object"
+        resultBOOL = objectChecker(wordSTR, inputLIST)
 
     return resultBOOL
 
-def verbChecker(wordSTR, refLIST):
+def caseparse(inputLIST):
+    extractSubject(inputLIST)
+    extractObject(inputLIST)
+    extractVerb (inputLIST)
+    
+def verbChecker(wordSTR, inputLIST):
     '''
-    verbChecker() checks if the wordSTR is a verb with the refLIST as reference.
+    verbChecker() checks if the wordSTR is a verb with the inputLIST as reference.
     input:
         wordSTR => string
-        refLIST => list
+        inputLIST => list
     output:
         True  => boolean (the wordSTR is a verb)
         False => boolean (the wordSTR is not a verb)
@@ -47,10 +51,10 @@ def verbChecker(wordSTR, refLIST):
 
     resultBOOL = True
     for i in ("ます"):
-        if wordSTR+i in ",".join(refLIST):
+        if wordSTR+i in ",".join(inputLIST):
             pass
     for z in  ("を", "に"):
-        if z+wordSTR in ",".join(refLIST):
+        if z+wordSTR in ",".join(inputLIST):
             pass        
         else:
             resultBOOL = False
