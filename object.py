@@ -1,8 +1,11 @@
 
 f = open("inputSTR.txt", "r")  #讀取data(要和code放在同一個資料夾)
-inputSTR = data.read().replace('\n', " ")  #讓input等於讀取進來的資料，將分行用空格取代
+#inputSTR = f.read().replace('\n', " ")  #讓input等於讀取進來的資料，將分行用空格取代
 #這裡我們應該可以再討論要不要調整，這是Emily他們那組的作法(而且現在跑不過去QQ)
-whole_list = inputSTR.split('。 ')  #幫切好的資料取名為whole_list
+#whole_list = inputSTR.split('。 ')  #幫切好的資料取名為whole_list
+l = f.readlines()
+print(l)
+
 
 def extractObject(inputLIST):
      
