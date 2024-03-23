@@ -4,40 +4,38 @@ inputSTR1 = inputSTR.replace('。', " ") #用空格取代"。"
 List = inputSTR1.split("  ")  #字串分割成列表
 #print(List) #成功分割為['私（わたし）がリンゴを食べます', '彼（かれ）が本を読みます', ....]=>設命名為"List"
 
-#string = input("請輸入日文句子: ") #如要測試其他非List中的句子，請把註解符號刪掉並run
+resultDICT = {"Subject": " ","Object": " ","Verb": " "}
+
+#def caseparse(List):
+ #     for lines in List:
+  #          if lines == True:
+   #               pass
+    #        else:
+     #             print("輸入錯誤")
 
 
-def caseparse(List):
-    for lines in List:
-        if lines == True:
-            pass
-        else:
-            print("輸入錯誤")
-
-
-def extractSubject(List):
+#def extractSubject(inputSTR):   
     
     
     
     
     
     
-def extractObject(List):       #按照此格式改寫成S和V的def extractor
-    for lines in List:
-        if "を" in lines:
-            x = (lines.split("が")[1]).split("を")[0]
+def extractObject(inputSTR):       #按照此格式改寫成S和V的def extractor
+      if "を" in inputSTR:
+            x = (inputSTR.split("が")[1]).split("を")[0]
             resultDICT["Object"] = x
-        elif "に" in lines:
-            x = (lines.split("が")[1]).split("に")[0]
+      elif "に" in inputSTR:
+            x = (inputSTR.split("が")[1]).split("に")[0]
             resultDICT["Object"] = x
-        else:
+      else:
             pass
-    return
+      return  resultDICT                     #得到受詞字典回傳
     
     
     
 
-def extractVerb(List):
+#def extractVerb(inputSTR):
     
     
 
@@ -45,10 +43,11 @@ def extractVerb(List):
 if __name__ == "__main__":
     corpusList = List
     
-x = input("請輸入日文句子: ")  #請輸入字串
-caseparse(x)
-extractSubject(x)
-extractObject(x)
-extractVerb(x)
-resultDICT = {"Subject":" ", "Object":" ", "Verb":" "}  #最後呈現的字典
+inputSTR = "私（わたし）がリンゴを食べます。"
+#caseparse(inputSTR)
+#extractSubject(inputSTR)
+#extractObject(inputSTR)
+#extractVerb(inputSTR)
+#resultDICT = extractVerb(inputSTR).update(extractObject(inputSTR).update(extractSubject(inputSTR)))  #最後呈現的字典
+resultDICT = extractObject(inputSTR)
 print(resultDICT)
