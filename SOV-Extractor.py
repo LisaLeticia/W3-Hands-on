@@ -14,7 +14,13 @@ resultDICT = {"Subject": " ","Object": " ","Verb": " "}
      #             print("輸入錯誤")
 
 
-#def extractSubject(inputSTR):   
+def extractSubject(inputSTR):
+      if "が" in inputSTR:
+            x = inputSTR.split("が")[0]
+            resultDICT["Subject"] = x
+      else:
+            pass
+      return resultDICT
     
     
     
