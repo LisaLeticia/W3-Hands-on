@@ -22,9 +22,7 @@ def extractSubject(inputSTR):
             pass
       return resultDICT
     
-    
-    
-    
+       
     
     
 def extractObject(inputSTR):       #按照此格式改寫成S和V的def extractor
@@ -56,11 +54,8 @@ if __name__ == "__main__":
     
 inputSTR = "私（わたし）がリンゴを食べます。"
 #caseparse(inputSTR)
-#extractSubject(inputSTR)
-#extractObject(inputSTR)
-#extractVerb(inputSTR)
-#resultDICT = extractVerb(inputSTR).update(extractObject(inputSTR).update(extractSubject(inputSTR)))  #最後呈現的字典
-resultDICT = extractObject(inputSTR)
-print(resultDICT)
-resultDICT = extractVerb(inputSTR)
-print(resultDICT)
+extractSubject(inputSTR)
+extractObject(inputSTR)
+extractVerb(inputSTR)
+#resultDICT = extractVerb(inputSTR).update(extractObject(inputSTR).update(extractSubject(inputSTR)))  
+print(resultDICT)  #最後呈現的字典
