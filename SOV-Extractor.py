@@ -41,8 +41,13 @@ def extractObject(inputSTR):       #按照此格式改寫成S和V的def extracto
     
     
 
-#def extractVerb(inputSTR):
-    
+def extractVerb(inputSTR):
+      if "ます" in inputSTR:
+            x = (inputSTR.split("を")[1]).split("ます")[0]
+            resultDICT["Verb"] = x
+      else:
+            pass
+      return  resultDICT    
     
 
 
@@ -56,4 +61,6 @@ inputSTR = "私（わたし）がリンゴを食べます。"
 #extractVerb(inputSTR)
 #resultDICT = extractVerb(inputSTR).update(extractObject(inputSTR).update(extractSubject(inputSTR)))  #最後呈現的字典
 resultDICT = extractObject(inputSTR)
+print(resultDICT)
+resultDICT = extractVerb(inputSTR)
 print(resultDICT)
