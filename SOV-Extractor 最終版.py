@@ -1,10 +1,5 @@
-f = open("inputSTR.txt", "r", encoding="utf-8")        #讀取data(要和code放在同一個資料夾)
-inputstr = f.read().replace('\n', " ")        #讓input等於讀取進來的資料，將分行用空格取代
-inputstr1 = inputstr.replace('。', " ")       #用空格取代"。"
-List = inputstr1.split("  ")        #字串分割成列表
-#print(List)       #成功分割為['私（わたし）がリンゴを食べます', '彼（かれ）が本を読みます', ....]=>設命名為"List"
-
-
+f = open("inputSTR.txt", "r", encoding = "utf-8")       
+List = f.readlines()
 
 resultDICT = {"Subject": " ","Object": " ","Verb": " "}
 
@@ -12,6 +7,7 @@ def caseparse(inputSTR):
     extractSubject(inputSTR)
     extractObject(inputSTR)
     extractVerb(inputSTR)
+
 
 def extractSubject(inputSTR):
     if "が" in inputSTR:
@@ -22,7 +18,6 @@ def extractSubject(inputSTR):
     return resultDICT                      #得到主詞字典回傳
            
     
-    
 def extractObject(inputSTR):       
     if "を" in inputSTR:
         x = (inputSTR.split("が")[1]).split("を")[0]      #新增受詞字典
@@ -30,11 +25,13 @@ def extractObject(inputSTR):
     elif "に" in inputSTR:
         x = (inputSTR.split("が")[1]).split("に")[0]      #新增受詞字典
         resultDICT["Object"] = x
+    elif "を" and "に" not in inputSTR:     #無受詞的句子
+        x = " " 
+        resultDICT["Object"] = x      
     else:
         pass
     return  resultDICT                     #得到受詞字典回傳
-    
-    
+ 
     
 def extractVerb(inputSTR):
     if "を" in inputSTR:
@@ -42,7 +39,10 @@ def extractVerb(inputSTR):
         resultDICT["Verb"] = x
     elif "に" in inputSTR:
         x = (inputSTR.split("に")[1]).split("ます")[0]
-        resultDICT["Verb"] = x    
+        resultDICT["Verb"] = x
+    elif "を" and "に" not in inputSTR:
+        x = (inputSTR.split("が")[1]).split("ます")[0]     
+        resultDICT["Verb"] = x      
     else:
         pass
     return  resultDICT                   #得到動詞字典回傳
