@@ -25,11 +25,9 @@ def extractObject(inputSTR):
     elif "に" in inputSTR:
         x = (inputSTR.split("が")[1]).split("に")[0]      #新增受詞字典
         resultDICT["Object"] = x
-    elif "を" or "に" not in inputSTR:     #無受詞的句子
-        x = " " 
-        resultDICT["Object"] = x      
     else:
-        pass
+        x = " " 
+        resultDICT["Object"] = x        
     return  resultDICT                     #得到受詞字典回傳
  
     
@@ -39,12 +37,10 @@ def extractVerb(inputSTR):
         resultDICT["Verb"] = x
     elif "に" in inputSTR:
         x = (inputSTR.split("に")[1]).split("ます")[0]
-        resultDICT["Verb"] = x
-    elif "を" or "に" not in inputSTR:
-        x = (inputSTR.split("が")[1]).split("ます")[0]     
-        resultDICT["Verb"] = x      
+        resultDICT["Verb"] = x 
     else:
-        pass
+        x = (inputSTR.split("が")[1]).split("ます")[0]     
+        resultDICT["Verb"] = x           
     return  resultDICT                   #得到動詞字典回傳
     
 
