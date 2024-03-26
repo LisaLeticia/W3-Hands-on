@@ -6,20 +6,12 @@ List = inputstr1.split("  ")        #字串分割成列表
 
 
 
-
-
 resultDICT = {"Subject": " ","Object": " ","Verb": " "}
 
-def caseparse(inputSTR, refList=List):
-    if inputSTR in List:
-        pass
-    elif inputSTR.endswith("。"):              #防未刪掉句號用
-        inputSTR = inputSTR.split("。")[0]
-        pass
-        return
-    else:
-        print("該句可能不存在於List中，但可嘗試尋找SOV")
-
+def caseparse(inputSTR):
+    extractSubject(inputSTR)
+    extractObject(inputSTR)
+    extractVerb(inputSTR)
 
 def extractSubject(inputSTR):
     if "が" in inputSTR:
@@ -28,8 +20,7 @@ def extractSubject(inputSTR):
     else:
         pass
     return resultDICT                      #得到主詞字典回傳
-    
-       
+           
     
     
 def extractObject(inputSTR):       
@@ -45,7 +36,6 @@ def extractObject(inputSTR):
     
     
     
-
 def extractVerb(inputSTR):
     if "を" in inputSTR:
         x = (inputSTR.split("を")[1]).split("ます")[0]     #新增動詞字典
@@ -62,11 +52,9 @@ def extractVerb(inputSTR):
 if __name__ == "__main__":
     corpusList = List
 
-    for i in List[0:20]:
-        inputSTR = i
-        caseparse(inputSTR)            #呼叫functions
-        extractSubject(inputSTR)
-        extractObject(inputSTR)
-        extractVerb(inputSTR)
-        
-        print(resultDICT)     #最後呈現結果
+
+for i in List[0:20]:
+    inputSTR = i
+
+    caseparse(inputSTR)            #呼叫functions
+    print(resultDICT)     #最後呈現結果
