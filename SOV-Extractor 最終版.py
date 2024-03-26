@@ -47,9 +47,12 @@ def extractObject(inputSTR):
     
 
 def extractVerb(inputSTR):
-    if "ます" in inputSTR:
+    if "を" in inputSTR:
         x = (inputSTR.split("を")[1]).split("ます")[0]     #新增動詞字典
         resultDICT["Verb"] = x
+    elif "に" in inputSTR:
+        x = (inputSTR.split("に")[1]).split("ます")[0]
+        resultDICT["Verb"] = x    
     else:
         pass
     return  resultDICT                   #得到動詞字典回傳
@@ -59,13 +62,11 @@ def extractVerb(inputSTR):
 if __name__ == "__main__":
     corpusList = List
 
-
-    
-inputSTR = "私（わたし）がリンゴを食べます。"       #請輸入日文句子，記得刪除標點符號
-
-caseparse(inputSTR)            #呼叫functions
-extractSubject(inputSTR)
-extractObject(inputSTR)
-extractVerb(inputSTR)
-
-print(resultDICT)     #最後呈現結果
+    for i in List[0:20]:
+        inputSTR = i
+        caseparse(inputSTR)            #呼叫functions
+        extractSubject(inputSTR)
+        extractObject(inputSTR)
+        extractVerb(inputSTR)
+        
+        print(resultDICT)     #最後呈現結果
