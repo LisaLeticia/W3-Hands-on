@@ -26,7 +26,7 @@ def extractObject(inputSTR):
         x = (inputSTR.split("が")[1]).split("に")[0]      #新增受詞字典
         resultDICT["Object"] = x
     else:
-        x = " " 
+        x = "No object " 
         resultDICT["Object"] = x        
     return  resultDICT                     #得到受詞字典回傳
  
@@ -49,8 +49,8 @@ if __name__ == "__main__":
     corpusList = List
 
 
-for i in List[0:20]:
+for i in List[0:len(List)]:
     inputSTR = i
 
     caseparse(inputSTR)            #呼叫functions
-    print(resultDICT)     #最後呈現結果
+    print(i, "resultDICT=", resultDICT, "\n")     #最後呈現結果
