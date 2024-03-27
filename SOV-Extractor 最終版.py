@@ -1,6 +1,7 @@
-f = open("inputSTR.txt", "r", encoding = "utf-8")       
-List = f.readlines()
-
+#f = open("inputSTR.txt", "r", encoding = "utf-8")       
+#List = f.readlines()
+with open("inputSTR.txt", "r", encoding = "utf-8") as f:
+    List = f.readlines()
 resultDICT = {"Subject": " ","Object": " ","Verb": " "}
 
 def caseparse(inputSTR):
@@ -53,4 +54,8 @@ for i in List[0:len(List)]:
     inputSTR = i
 
     caseparse(inputSTR)            #呼叫functions
+<<<<<<< HEAD
     print(i, "resultDICT=", resultDICT, "\n")     #最後呈現結果
+=======
+    print("Sentence: ", i, "resultDICT=", resultDICT, "\n")     #最後呈現結果
+>>>>>>> f9c423890586e97d63bd912863658e984861878a
