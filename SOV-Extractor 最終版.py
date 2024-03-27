@@ -15,7 +15,7 @@ def extractSubject(inputSTR):
         x = inputSTR.split("が")[0]
         resultDICT["Subject"] = x           #新增主詞字典
     else:
-        pass
+        print("Please check your sentence. ")
     return resultDICT                      #得到主詞字典回傳
            
     
@@ -54,4 +54,4 @@ for i in List[0:len(List)]:
     inputSTR = i
 
     caseparse(inputSTR)            #呼叫functions
-    print("Sentence: ", i, "resultDICT=", resultDICT, "\n")     #最後呈現結果
+    print("Sentence: ", i, "\n", "resultDICT=", resultDICT, "\n")     #最後呈現結果
