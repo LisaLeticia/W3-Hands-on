@@ -5,12 +5,28 @@ with open("inputSTR.txt", "r", encoding = "utf-8") as f:
 resultDICT = {"Subject": " ","Object": " ","Verb": " "}
 
 def caseparse(inputSTR):
+    '''
+    caseparse() is the function to call other functions (extractSubject, extractObject, and extractVerb)
+    
+    input:
+        inputSTR => string: the string of List to be tested.
+    output:
+        call other functions.
+    '''
     extractSubject(inputSTR)
     extractObject(inputSTR)
     extractVerb(inputSTR)
 
 
 def extractSubject(inputSTR):
+    '''
+    extractSubject() is the function to split the subject out of a string.
+    
+    input:
+        inputSTR => string: the string of List to be tested.
+    output:
+        add and return new value of subject to resultDICT.
+    '''
     if "が" in inputSTR:
         x = inputSTR.split("が")[0]
         resultDICT["Subject"] = x           #新增主詞字典
@@ -20,6 +36,14 @@ def extractSubject(inputSTR):
            
     
 def extractObject(inputSTR):       
+    '''
+    extractObject() is the function to split the object out of a string.
+    
+    input:
+        inputSTR => string: the string of List to be tested.
+    output:
+        add and return new value of object to resultDICT.
+    '''
     if "を" in inputSTR:
         x = (inputSTR.split("が")[1]).split("を")[0]      #新增受詞字典
         resultDICT["Object"] = x
@@ -33,6 +57,14 @@ def extractObject(inputSTR):
  
     
 def extractVerb(inputSTR):
+    '''
+    extractSubject() is the function to split the verb out of a string.
+    
+    input:
+        inputSTR => string: the string of List to be tested.
+    output:
+        add and return new value of verb to resultDICT.
+    '''    
     if "を" in inputSTR:
         x = (inputSTR.split("を")[1]).split("ます")[0]     #新增動詞字典
         resultDICT["Verb"] = x
