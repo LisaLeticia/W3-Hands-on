@@ -9,7 +9,6 @@ Main
 |   inputSTR.txt
 |   README.md
 |   SOV-Extractor.py
-|   tree.txt
 |   
 +---Other ways to code
 |       index method.py
@@ -20,4 +19,5 @@ Main
         if.py
         object.py
         測試用object.py
+        tree.txt
         
