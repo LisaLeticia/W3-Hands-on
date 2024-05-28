@@ -1,8 +1,7 @@
-#f = open("inputSTR.txt", "r", encoding = "utf-8")       
-#List = f.readlines()
-with open("inputSTR.txt", "r", encoding = "utf-8") as f:
-    List = f.readlines()
-resultDICT = {"Subject": " ","Object": " ","Verb": " "}
+#!/usr/bin/env python3         #檔頭重要!
+# -*- coding:utf-8 -*-
+
+
 
 def caseparse(inputSTR):
     '''
@@ -79,12 +78,16 @@ def extractVerb(inputSTR):
 
 
 if __name__ == "__main__":
+    
+    with open("inputSTR.txt", "r", encoding = "utf-8") as f:   #讀檔放於程式進入點後，需縮排。(原本放檔頭後、function前，但讀檔非function，分隔太遠不好讀。感謝建議!)
+        List = f.readlines()
+    resultDICT = {"Subject": " ","Object": " ","Verb": " "}
+
     corpusList = List
 
+    for i in List[0:len(List)]:      #在程式進入點後的for迴圈應縮排，程式較易讀(感謝建議!)
+        inputSTR = i
 
-for i in List[0:len(List)]:
-    inputSTR = i
-
-    caseparse(inputSTR)            #呼叫functions
-    print("Sentence: ", i, "\n", "resultDICT=", resultDICT, "\n")     #最後呈現結果
+        caseparse(inputSTR)            #呼叫functions
+        print("Sentence: ", i, "\n", "resultDICT=", resultDICT, "\n")     #最後呈現結果
 
